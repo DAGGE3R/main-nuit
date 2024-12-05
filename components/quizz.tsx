@@ -89,7 +89,7 @@ export default function QuizGame() {
     >
       <CardHeader>
         <CardTitle className="text-3xl font-bold text-primary">Quiz Completed!</CardTitle>
-        <CardDescription>Here's how you did:</CardDescription>
+        <CardDescription>Here&apos;s how you did:</CardDescription>
       </CardHeader>
       <CardContent className="flex flex-col items-center">
         <div className="text-5xl font-bold mb-4">{score} / {quizData.length}</div>
