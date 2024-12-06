@@ -2,57 +2,57 @@ import { OrganId, OrganInfo } from "@/types/organs"
 
 export const organsInfo: Record<OrganId, OrganInfo> = {
   brain: {
-    title: "Brain",
-    description: "The brain is the control center of the human body, responsible for thought, emotion, and sensory processing.",
+    title: "Cerveau",
+    description: "Comme les courants océaniques qui dirigent les mouvements de l'eau, le cerveau est le centre de contrôle du corps humain, orchestrant les pensées et les émotions.",
     functions: [
-      "Controls thought and emotion",
-      "Regulates body functions",
-      "Processes sensory information"
+      "Dirige les flux d'information comme les courants marins",
+      "Régule les fonctions comme les marées",
+      "Traite les signaux comme les vagues captent les vibrations"
     ]
   },
   heart: {
-    title: "Heart",
-    description: "The heart is a muscular organ that pumps blood throughout the body, delivering oxygen and nutrients.",
+    title: "Coeur",
+    description: "Semblable aux puissantes vagues qui font circuler l'eau, le cœur propulse le sang à travers le corps, transportant l'oxygène et les nutriments.",
     functions: [
-      "Pumps blood throughout the body",
-      "Delivers oxygen and nutrients",
-      "Removes waste products"
+      "Crée un mouvement cyclique comme les marées",
+      "Distribue les ressources comme les courants océaniques",
+      "Nettoie comme le ressac des vagues"
     ]
   },
   lungs: {
-    title: "Lungs",
-    description: "The lungs are vital organs for respiration, exchanging oxygen and carbon dioxide with the blood.",
+    title: "Poumons",
+    description: "Tels les échanges gazeux entre l'océan et l'atmosphère, les poumons permettent l'échange vital d'oxygène et de dioxyde de carbone.",
     functions: [
-      "Enable breathing and oxygen exchange",
-      "Regulate blood pH",
-      "Excrete carbon dioxide"
+      "Échange les gaz comme la surface de l'océan",
+      "Maintient l'équilibre comme les eaux marines",
+      "Expulse les déchets comme les vagues sur la plage"
     ]
   },
   liver: {
-    title: "Liver",
-    description: "The liver detoxifies chemicals and metabolizes drugs, also producing bile for digestion.",
+    title: "Foie",
+    description: "Comme l'océan qui filtre naturellement les polluants, le foie détoxifie le corps et transforme les nutriments.",
     functions: [
-      "Detoxifies the blood",
-      "Produces bile for digestion",
-      "Stores vitamins and minerals"
+      "Purifie comme les fonds marins filtrent l'eau",
+      "Transforme les substances comme l'écosystème marin",
+      "Stocke les ressources comme les récifs coralliens"
     ]
   },
   kidneys: {
-    title: "Kidneys",
-    description: "The kidneys filter blood to remove waste products and maintain fluid balance.",
+    title: "Reins",
+    description: "À l'image des estuaires qui filtrent l'eau, les reins purifient le sang et maintiennent l'équilibre des fluides.",
     functions: [
-      "Filter blood and produce urine",
-      "Regulate blood pressure",
-      "Maintain electrolyte balance"
+      "Filtre comme les mangroves côtières",
+      "Régule la pression comme les profondeurs océaniques",
+      "Équilibre les minéraux comme l'eau de mer"
     ]
   },
   stomach: {
-    title: "Digestive System",
-    description: "The stomach plays a key role in digestion by breaking down food with acids and enzymes.",
+    title: "Système Digestif",
+    description: "Comme l'océan qui décompose la matière organique, le système digestif transforme la nourriture grâce à ses acides et enzymes.",
     functions: [
-      "Breaks down food for digestion",
-      "Absorbs nutrients",
-      "Produces digestive enzymes"
+      "Décompose comme les micro-organismes marins",
+      "Absorbe les nutriments comme les récifs coralliens",
+      "Produit des enzymes comme la vie marine"
     ]
   }
 } as const;

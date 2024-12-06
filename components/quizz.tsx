@@ -8,8 +8,14 @@ import { Label } from "@/components/ui/label"
 import { Progress } from "@/components/ui/progress"
 import { quizData, Question } from "@/data/quizz-data"
 import { motion, AnimatePresence } from "motion/react"
+import { OrganId } from "@/types/organs"
 
-export default function QuizGame() {
+interface QuizGameProps {
+  organId: OrganId
+}
+
+export default function QuizGame({ organId }: QuizGameProps) {
+  const organQuestions = quizData[organId]
   const [currentQuestion, setCurrentQuestion] = useState(0)
   const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null)
   const [score, setScore] = useState(0)
@@ -17,21 +23,21 @@ export default function QuizGame() {
   const [progress, setProgress] = useState(0)
 
   useEffect(() => {
-    setProgress(((currentQuestion + 1) / quizData.length) * 100)
-  }, [currentQuestion])
+    setProgress(((currentQuestion + 1) / organQuestions.length) * 100)
+  }, [currentQuestion, organQuestions.length])
 
   const handleAnswerSelect = (answerIndex: number) => {
     setSelectedAnswer(answerIndex)
   }
 
   const handleNextQuestion = () => {
-    if (selectedAnswer === quizData[currentQuestion].correctAnswer) {
+    if (selectedAnswer === organQuestions[currentQuestion].correctAnswer) {
       setScore(score + 1)
     }
 
     setSelectedAnswer(null)
 
-    if (currentQuestion + 1 < quizData.length) {
+    if (currentQuestion + 1 < organQuestions.length) {
       setCurrentQuestion(currentQuestion + 1)
     } else {
       setShowResult(true)
@@ -72,10 +78,10 @@ export default function QuizGame() {
       </CardContent>
       <CardFooter className="flex justify-between items-center">
         <div className="text-sm text-muted-foreground">
-          Question {currentQuestion + 1} of {quizData.length}
+          Question {currentQuestion + 1} sur {organQuestions.length}
         </div>
-        <Button onClick={handleNextQuestion} disabled={selectedAnswer === null}>
-          {currentQuestion === quizData.length - 1 ? "Finish" : "Next"}
+        <Button onClick={handleNextQuestion} disabled={selectedAnswer === null} className="bg-blue-600 hover:bg-blue-500">
+          {currentQuestion === organQuestions.length - 1 ? "Terminer" : "Suivant"}
         </Button>
       </CardFooter>
     </motion.div>
@@ -88,23 +94,23 @@ export default function QuizGame() {
       transition={{ duration: 0.5 }}
     >
       <CardHeader>
-        <CardTitle className="text-3xl font-bold text-primary">Quiz Completed!</CardTitle>
-        <CardDescription>Here&apos;s how you did:</CardDescription>
+        <CardTitle className="text-3xl font-bold text-primary">Quiz Terminé!</CardTitle>
+        <CardDescription>Voici votre résultat :</CardDescription>
       </CardHeader>
       <CardContent className="flex flex-col items-center">
-        <div className="text-5xl font-bold mb-4">{score} / {quizData.length}</div>
-        <Progress value={(score / quizData.length) * 100} className="w-full h-4" />
+        <div className="text-5xl font-bold mb-4">{score} / {organQuestions.length}</div>
+        <Progress value={(score / organQuestions.length) * 100} className="w-full h-4" />
         <p className="mt-4 text-center text-muted-foreground">
-          {score === quizData.length
-            ? "Perfect score! You're a quiz master!"
-            : score > quizData.length / 2
-              ? "Great job! You know your stuff!"
-              : "Keep practicing, you'll get there!"}
+          {score === organQuestions.length
+            ? "Score parfait ! Vous êtes un expert !"
+            : score > organQuestions.length / 2
+              ? "Bien joué ! Vous maîtrisez le sujet !"
+              : "Continuez à pratiquer, vous y arriverez !"}
         </p>
       </CardContent>
       <CardFooter className="flex justify-center">
-        <Button onClick={handleRestart} size="lg">
-          Restart Quiz
+        <Button onClick={handleRestart} size="lg" className="bg-red-500 hover:bg-red-600">
+          Recommencer le Quiz
         </Button>
       </CardFooter>
     </motion.div>
@@ -113,9 +119,9 @@ export default function QuizGame() {
   return (
     <div className="min-h-fit flex items-center justify-center bg-gradient-to-br from-primary/20 to-secondary/20">
       <Card className="w-[400px] shadow-lg p-3 rounded-none">
-        <Progress value={progress} className="rounded-lg" />
+        <Progress value={progress} className="rounded-lg text-red-600 [&>*]:bg-blue-600" />
         <AnimatePresence mode="wait">
-          {showResult ? renderResult() : renderQuestion(quizData[currentQuestion])}
+          {showResult ? renderResult() : renderQuestion(organQuestions[currentQuestion])}
         </AnimatePresence>
       </Card>
     </div>

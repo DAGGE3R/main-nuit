@@ -9,20 +9,19 @@ import { OrganData } from "@/types/organs"
 
 
 
-
 export const organs: OrganData[] = [
   {
     id: 'brain',
     src: Brain,
     alt: 'Brain',
-    position: 'top-[2%] left-[19%]',
+    position: 'top-[15%] mb-12 left-[19%]',
     width: 'w-[10%]'
   },
   {
     id: 'lungs',
     src: Lungs,
     alt: 'Lungs',
-    position: 'top-[17%] left-[15%]',
+    position: 'top-[17%] left-[70%]',
     width: 'w-[15%]'
   },
   {

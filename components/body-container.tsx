@@ -15,7 +15,7 @@ export const BodyContainer = () => {
   }
 
   return (
-    <div className="mt-6 px-4 w-1/3 ml-24">
+    <div className="mt-6 px-4 w-1/3 ml-32 z-[10]">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 relative">
         <div className="relative">
           <Image
@@ -25,14 +25,14 @@ export const BodyContainer = () => {
           />
         </div>
 
-        <div>
+        <div className="absolute lg:ml-24 ml-12 mt-10">
           {organs.map((organ) => (
             <Image
               key={organ.id}
               src={organ.src}
               alt={organ.alt}
               onClick={() => handleOrganClick(organ.id)}
-              className={`absolute ${organ.position} ${organ.width} h-auto hover:scale-105 transition-all duration-200 hover:cursor-pointer`}
+              className={`${organ.position} ${organ.width} mb-2 h-auto hover:scale-105 transition-all duration-200 hover:cursor-pointer`}
             />
           ))}
         </div>
