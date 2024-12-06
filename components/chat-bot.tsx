@@ -39,7 +39,7 @@ export default function ChatBot() {
 
     try {
       const response = await fetch(
-        "http://ocean-cdg3.onrender.com/chat?query=" + input,
+        "https://ocean-cdg3.onrender.com/chat?query=" + input,
         {
           method: "POST",
           headers: {
@@ -56,7 +56,7 @@ export default function ChatBot() {
       const data = await response.json();
       const assistantMessage: Message = {
         id: (Date.now() + 1).toString(),
-        content: data.response,
+        content: data.response.response,
         role: "assistant",
       };
 
